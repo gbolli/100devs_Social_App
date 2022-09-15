@@ -13,6 +13,8 @@ require("dotenv").config({ path: "./config/.env" });
 app.set('view engine', 'ejs')
 
 // Static folders
+app.use(express.static('public'))
+
 // Body parsing
 // Logging
 // MethodOverride for PUT, DELETE
