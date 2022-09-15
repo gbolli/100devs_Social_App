@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social App</title>
-    <link
-      rel="icon" type="image/png" sizes="32x32"
-      href="/imgs/favicon-32x32.png"/>
-    <link rel="stylesheet" href="/css/style.css" />
-</head>
-<body>
-    <h1>This is a social app</h1>
-</body>
-</html>
+<%- include('partials/header') -%>
+
+<main class="container">
+    <div class="row justify-content-around mt-5">
+        <a href="/login" class="col-3 btn btn-primary"> Login</a>
+        <a href="/signup" class="col-3 btn btn-primary"> Signup</a>
+    </div>
+</main>
+    
+
+<%- include('partials/footer') -%>
