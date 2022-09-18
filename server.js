@@ -37,3 +37,5 @@ app.use('/', mainRoutes)
 app.listen(process.env.PORT, () => {
     console.log(`Server is running on port ${process.env.PORT}.   It's on FIRE!`)
 })
+
+// TODO: Add comments section for posts
