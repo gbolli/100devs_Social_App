@@ -8,5 +8,19 @@ module.exports = {
         res.render('signup.ejs', {
             title: 'Create Account'
         })
+    },
+    postLogin: (req, res) => {
+        res.render('profile.ejs', {
+            title: 'Profile',
+            user: {
+                userName: 'Papa',
+                email: 'blah@blah.blah'
+            }
+        })
+    },
+    postSignup: (req, res) => {
+        res.render('profile.ejs', {
+            title: 'Profile'
+        })
     }
 }
