@@ -3,5 +3,10 @@ module.exports = {
         res.render('login.ejs', {
             title: 'Login'
         })
+    },
+    getSignup: (req, res) => {
+        res.render('signup.ejs', {
+            title: 'Create Account'
+        })
     }
 }
