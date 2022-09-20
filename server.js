@@ -2,6 +2,9 @@ const express = require('express')
 const app = express()
 const connectDB = require('./config/database')
 const logger = require('morgan')
+const passport = require("passport")
+const session = require("express-session")
+const MongoStore = require("connect-mongo")
 
 const mainRoutes = require('./routes/main')
 
@@ -9,6 +12,8 @@ const mainRoutes = require('./routes/main')
 require("dotenv").config({ path: "./config/.env" });
 
 // Passport config
+require("./config/passport")(passport)
+
 // Connect to Database
 connectDB()
 
@@ -26,8 +31,22 @@ app.use(express.json())
 app.use(logger('dev'))
 
 // MethodOverride for PUT, DELETE
+
+
 // Set up sessions
+app.use(
+    session({
+        secret: process.env.SESSION_SECRET,
+        resave: false,
+        saveUninitialized: false,
+        store: MongoStore.create({ mongoUrl: process.env.DB_STRING })
+    })
+)
+
 // Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Setup flash messages
 
 // Routes
