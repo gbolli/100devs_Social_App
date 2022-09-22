@@ -5,6 +5,7 @@ const logger = require('morgan')
 const passport = require("passport")
 const session = require("express-session")
 const MongoStore = require("connect-mongo")
+const flash = require('express-flash')
 
 const mainRoutes = require('./routes/main')
 
@@ -48,6 +49,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Setup flash messages
+app.use(flash())
 
 // Routes
 app.use('/', mainRoutes)

@@ -13,6 +13,7 @@ module.exports = {
             title: 'Create Account'
         })
     },
+    // move to Posts controller
     getProfile: (req, res) => {
         res.render('profile.ejs', {
             user: req.user,
@@ -25,14 +26,14 @@ module.exports = {
               return next(err)
             }
             if (!user) {
-              //req.flash("errors", info)
+              req.flash("errors", info)
               return res.redirect("/login")
             }
             req.logIn(user, (err) => {
               if (err) {
                 return next(err)
               }
-              //req.flash("success", { msg: "Success! You are logged in." })
+              req.flash("success", { msg: "Success! You are logged in." })
               res.redirect(req.session.returnTo || "/profile")
             })
           })(req, res, next)
@@ -51,9 +52,9 @@ module.exports = {
                     return next(err)
                 }
                 if (existingUser) {
-                    // req.flash("errors", {
-                    // msg: "Account with that email address or username already exists.",
-                    // })
+                    req.flash("errors", {
+                    msg: "Account with that email address or username already exists.",
+                    })
                     return res.redirect("../signup")
                 }
                 user.save((err) => {
