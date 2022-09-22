@@ -12,7 +12,6 @@ module.exports = {
         } catch (error) {
             console.error(error)
         }
-        
     },
     getFeed: async (req, res) => {
         try {
@@ -20,6 +19,14 @@ module.exports = {
             res.render('feed.ejs', { posts: posts });
         } catch (err) {
             console.log(err);
+        }
+    },
+    getPost: async (req, res) => {
+        try {
+            const post = await Post.findById(req.params.id)
+            res.render('post.ejs', { post: post, user: req.user })
+        } catch (error) {
+            console.error(error)
         }
     },
     createPost: async (req, res) => {
