@@ -26,9 +26,9 @@ const PostSchema = new mongoose.Schema({
         ref: 'User'
     },
     createdAt: {
-        time: Date,
+        type: Date,
         default: Date.now
     }
 })
 
-module.exports = new mongoose.Schema('Post', PostSchema)
+module.exports = mongoose.model('Post', PostSchema)

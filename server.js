@@ -8,6 +8,7 @@ const MongoStore = require("connect-mongo")
 const flash = require('express-flash')
 
 const mainRoutes = require('./routes/main')
+const postRoutes = require('./routes/posts')
 
 //setup .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
@@ -45,14 +46,15 @@ app.use(
 )
 
 // Passport middleware
-app.use(passport.initialize());
-app.use(passport.session());
+app.use(passport.initialize())
+app.use(passport.session())
 
 // Setup flash messages
 app.use(flash())
 
 // Routes
 app.use('/', mainRoutes)
+app.use('/post', postRoutes)
 
 // Run server
 app.listen(process.env.PORT, () => {
