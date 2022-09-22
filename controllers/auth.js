@@ -14,13 +14,6 @@ module.exports = {
             title: 'Create Account'
         })
     },
-    // move to Posts controller
-    getProfile: (req, res) => {
-        res.render('profile.ejs', {
-            user: req.user,
-            title: 'Profile'
-        })
-    },
     postLogin: (req, res, next) => {
         const validationErrors = []
 
