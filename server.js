@@ -6,7 +6,7 @@ const passport = require("passport")
 const session = require("express-session")
 const MongoStore = require("connect-mongo")
 const flash = require('express-flash')
-
+const methodOverride = require('method-override')
 const mainRoutes = require('./routes/main')
 const postRoutes = require('./routes/posts')
 
@@ -33,7 +33,7 @@ app.use(express.json())
 app.use(logger('dev'))
 
 // MethodOverride for PUT, DELETE
-
+app.use(methodOverride('_method'))
 
 // Set up sessions
 app.use(
